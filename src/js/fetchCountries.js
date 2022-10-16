@@ -1,1 +1,1 @@
-fetchCountries(name);
+function fetchCountries(name) {}
