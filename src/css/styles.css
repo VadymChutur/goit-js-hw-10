@@ -56,15 +56,18 @@ h2 {
 .list-info {
   flex-wrap: wrap;
   display: flex;
-  gap: 50px;
+  gap: 20px;
   padding: 0;
+  list-style: none;
 }
 
 .country-list {
   display: flex;
   flex-direction: column;
+  list-style: none;
 }
 .country-item {
+  list-style: none;
   display: flex;
   margin-top: 20px;
   margin-bottom: 20px;

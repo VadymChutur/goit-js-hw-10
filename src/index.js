@@ -29,7 +29,7 @@ function findCountry(e) {
     .then(data => {
       if (data.length === 1) {
         renderCountreisInfo(data);
-      } else if (data.length >= 3 && data.length <= 10) {
+      } else if (data.length >= 2 && data.length <= 10) {
         renderCountreisPreview(data);
       } else {
         findManyCountries(data);
