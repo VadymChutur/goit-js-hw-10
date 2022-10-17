@@ -18,3 +18,30 @@ body {
   max-width: 320px;
   margin-bottom: 16px;
 }
+
+.container {
+  display: flex;
+}
+
+.main-info {
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 600px;
+  height: 150px;
+  font-size: 40px;
+}
+
+img {
+  display: block;
+  width: 100px;
+  height: auto;
+}
+
+.secondary-info {
+  display: flex;
+  width: 200;
+  align-items: center;
+  flex-wrap: wrap;
+}

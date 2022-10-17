@@ -1,38 +1,38 @@
 import './css/styles.css';
+import debounce from 'lodash.debounce';
+import { Notify } from 'notiflix';
+import marckupTpl from '../src/templates/markupCountries.hbs';
 
 const DEBOUNCE_DELAY = 300;
 const BASE_URL = 'https://restcountries.com';
 const name = 'ukraine';
 
-fetch(`${BASE_URL}/v2/name/${name}`)
-  .then(response => {
-    if (!response) {
-      throw new Error(response.status);
-    }
-    return response.json();
-  })
-  .then(name => {
-    fetchCountries(name);
-  })
-  .catch(error => console.log(error));
+const refs = {
+  inputFindDield: document.querySelector('input#search-box'),
+  conteinerInfo: document.querySelector('.country-info'),
+};
 
-function fetchCountries(data) {
-  const {
-    name,
-    capital,
-    population,
-    flags: { svg },
-    languages,
-  } = data[0];
-  console.log(data[0]);
-  console.log(data[0].name.official);
-  console.log(data[0].capital[0]);
-  console.log(data[0].population);
-  console.log(data[0].flags.svg);
-  console.log(data[0].languages);
-  console.log(name);
-  console.log(capital);
-  console.log(population);
-  console.log(svg);
-  console.log(languages[0]);
+refs.inputFindDield.addEventListener('input', findCountry, DEBOUNCE_DELAY);
+
+function findCountry(e) {
+  console.log(e.data);
+  let search = e.data;
+  fetchCountries(search.trim().toLowerCase());
+}
+
+function fetchCountries(nameCountry) {
+  fetch(`${BASE_URL}/v2/name/${nameCountry}`)
+    .then(response => {
+      if (!response) {
+        throw new Error(response.status);
+      }
+      return response.json();
+    })
+    .then(renderCountreisInfo)
+    .catch(error => console.log(error));
+}
+
+function renderCountreisInfo(data) {
+  const markup = marckupTpl(data[0]);
+  refs.conteinerInfo.innerHTML = markup;
 }
