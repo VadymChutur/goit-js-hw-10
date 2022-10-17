@@ -27,21 +27,45 @@ body {
   flex-wrap: wrap;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 600px;
-  height: 150px;
-  font-size: 40px;
+  font-size: 50px;
 }
 
+p,
+ul {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 img {
   display: block;
   width: 100px;
   height: auto;
+  margin-right: 25px;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .secondary-info {
-  display: flex;
-  width: 200;
+  gap: 25px;
   align-items: center;
+  font-size: 25px;
+}
+
+.list-info {
   flex-wrap: wrap;
+  display: flex;
+  gap: 50px;
+  padding: 0;
+}
+
+.country-list {
+  display: flex;
+  flex-direction: column;
+}
+.country-item {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
