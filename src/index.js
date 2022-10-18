@@ -38,7 +38,7 @@ function findCountry(e) {
     .catch(onError);
 }
 
-function clearSearchField(params) {
+function clearSearchField() {
   refs.conteinerInfo.innerHTML = '';
   refs.listInfo.innerHTML = '';
 }
